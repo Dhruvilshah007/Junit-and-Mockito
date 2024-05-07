@@ -50,7 +50,7 @@
             </plugin>
 
 
-<!--Code coverage report-->
+            <!--Code coverage report-->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -85,7 +85,7 @@
             <artifactId>junit-jupiter</artifactId>
             <version>5.8.2</version>
             <scope>test</scope>
-           <!-- Here scope test means,Dependency is only for test purpose.Dependency is not required for normal execution of the application.-->
+            <!-- Here scope test means,Dependency is only for test purpose.Dependency is not required for normal execution of the application.-->
         </dependency>
 
     </dependencies>

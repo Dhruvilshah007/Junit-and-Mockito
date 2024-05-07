@@ -19,3 +19,17 @@ Development Process
 2)Write code to make test pass
 3)Refactor the code
 4)Repeat the process
+
+
+Imp
+Junit provides @ParameterizedTest
+Run a test multiple times and provide different paramater values(Behind the scenes,Junit will run test multiple times and supply data,Junit does looping for you)
+
+@ValueSource    ->  Arrays of values: Strings,int,doubles,floats etcc
+@CsvSource  ->  Array of CSV String values
+@CsvFileSource ->  CSV values read from a file
+@EnumSource ->  Enum constant values
+@MethodSource   ->  Custom method for providing values
+
+
+@MethodSource,Argument Aggregation etc.. go and check doc

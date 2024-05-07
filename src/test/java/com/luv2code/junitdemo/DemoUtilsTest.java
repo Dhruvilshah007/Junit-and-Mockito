@@ -1,6 +1,5 @@
-package org.luv2code.junitdemo;
+package com.luv2code.junitdemo;
 
-import com.luv2code.junitdemo.DemoUtils;
 import org.junit.jupiter.api.*;
 
 import java.time.Duration;
@@ -130,9 +129,9 @@ class DemoUtilsTest {
     @Test
     @DisplayName("Array Equals")
     void testArrayEquals(){
-       String[] stringArray={"A","B","C"};
+        String[] stringArray={"A","B","C"};
 
-       assertArrayEquals(stringArray,demoUtils.getFirstThreeLettersOfAlphabet(),"Arrays should be the same");
+        assertArrayEquals(stringArray,demoUtils.getFirstThreeLettersOfAlphabet(),"Arrays should be the same");
     }
 
     @Test
@@ -162,7 +161,7 @@ class DemoUtilsTest {
     @Test
     @DisplayName("Timeout")
     void testTimeout(){
-       assertTimeoutPreemptively(Duration.ofSeconds(3),()->{demoUtils.checkTimeout();},"Method should execute in 3 seconds");
+        assertTimeoutPreemptively(Duration.ofSeconds(3),()->{demoUtils.checkTimeout();},"Method should execute in 3 seconds");
 
     }
 
@@ -171,4 +170,3 @@ class DemoUtilsTest {
 
 
 }
-
