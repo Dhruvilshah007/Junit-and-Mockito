@@ -1,0 +1,117 @@
+@Test
+@assertEquals
+@assertNotEquals
+@assertNull
+@assertNotNull
+
+@BeforeEach
+@AfterEach
+@BeforeAll
+@AfterAll
+
+
+@DisplayName
+DisplayName annotation ise used for showing displayName
+We can also include spaces,special characters,eg-Test for Equality to Support JIRA#1374
+
+
+@DisplayNameGeneration
+Removes trailing spaces from method name,replace underscores with spaces,Generate sentences based on testclass name and test methodname
+So, here we wont require to manually write DisplayName at each method, directly at class level it will be done on basis of method name
+eg-@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
+
+
+@assertSame ->  Assert that items refer to same object
+@assertNotSame ->  Assert that items do not refer to same object
+
+@assertTrue ->  Assert that condition is true
+@assertFalse ->  Assert that condition is false
+
+@assertArrayEquals  ->  Assert that both object arrays are deeply equal(This method compares two arrays for equality. It checks that both arrays have the same length and that the elements at the same index in each array are equal. If they are not, an assertion error is thrown.)
+@assertIterableEquals  ->  Assert that both object iterables are deeply equal,(iterable is an instance of a class that implements java.lang.Iterable.interface eg-ArrayList,LinkedList,HashSet,TreeSet...).This method compares two iterables for equality. It iterates over both iterables simultaneously, checking that the elements are equal. If they are not, an assertion error is thrown
+@assertLinesMatch   ->  Assert that both lists of strings match.This method is used to compare two lists of strings line by line. It allows you to use regular expressions to match lines, making it useful for comparing text output that may vary in certain parts
+
+
+@assertThrows   ->  Assert than an executable throws an exception of expected type.
+@assertDoesNotThrows   ->  Assert than an executable doesnt throws an exception.
+@assertTimeoutPreemptively  ->  Assert that an executable completes before given timeout is exceeded.
+
+
+Order
+Order shouldnot be factor in unit tests.
+There shouldbe no dependency between tests.
+All tests should pass regardless of the order in which they run.
+Usecase,examples where order can be useful
+1-You want tests to appear in alphabetical order for reporting purpose
+2-SHaring reports with Project management,QA teametc..
+3-Group tests based on functionality or requirements.
+
+->Be default test classes and methos willbe ordered using an algorithm that is deterministic but itentionally nonobvious
+
+@TestMethodOrder    ->  Configures teh order/sort algorithm for the test methods
+
+MethodOrderer.DisplayName   -> Sort test methods alphabetically based on method name
+MethodOrderer.MethodName   -> Pseudo-random order based on method names.
+MethodOrderer.Random   -> Sort test methods alphabetically based on displayname
+MethodOrderer.OrderAnnotation   -> Sort test methods numerically based on @Order annotation,Manually specify order with an int number
+        ->Order with lowest number has highest priotiy
+        ->Negative numbers are allowed
+        ->If duplicate orders are there than it would be random, as per normal algo
+
+->If you have multiple test classes,you can order the classes
+->Define custom order implementation
+->Configure default order in properties file
+
+
+Code Coverage
+
+It measures how many metods/lines are called by your tests.
+Coverage is represented as percentage-50%,80% etc..
+Higher coverage better
+100% is not attainable
+Only most teams 70-80% is acceptable
+Code coverage is only a metric and can be easily tricked with bad tests
+Use metric as simple one data point in your softeare process
+
+
+
+
+--------------
+Mvn
+
+Unit test reports from command line in maven
+Code coverage using command line with maven
+mvn wil command line is helpful when doing devops work.You can also use Intellijea inbuilt terminal instead of command line
+
+
+->To check version
+mvn --version
+
+->To test
+mvn clean test
+
+->Add website resoucrs images,css etc.., If we dont write this than css and images wont be loade properly but we will get data normally.
+mvn site-DgenerateReports=false
+
+
+-----
+Conditional Tests -Use cases
+
+->Running test in specific Java version(8,17 etcc).
+->Test should run on only given OS:Windows,Mac,Linux
+->Test should run if specifc environment bariable or system properties are set eg-Should run on Dev,Uat,Qa environment.
+
+@Disabled   ->  Disable a test method
+@EnabledOns ->  Enable test when running on agiven OS
+
+Annotations can be applied at class level or method level.
+
+@EnabledonJre   ->  Enable test for a given Java version
+@EnabledForJreRange ->  Enable test for a given Java version range
+
+@EnabledIfSystemProperty   ->  Enable test based on system property
+@EnabledIfEnvironmentVariable->  Enable test based on environment variable
+
+
